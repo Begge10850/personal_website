@@ -98,3 +98,14 @@
 @media(max-width:760px){.avatar{height:112px}.avatar img{width:150px;height:112px}.hero-avatar{height:132px}.hero-avatar img{width:176px;height:132px}.home-hero,.page-intro{padding-top:38px}.home-projects{grid-template-columns:1fr}}
 @media(max-width:520px){.tech-grid{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:1fr}.home-hero h1,.page-intro h1{font-size:29px}}
 @media(prefers-reduced-motion:reduce){.badges i{animation:none}}
+
+/* Clean character crops and reference-weight typography */
+.avatar{overflow:hidden}
+.avatar-experience img{clip-path:inset(20px 38px 0)}
+.avatar-education img{clip-path:inset(24px 24px 0)}
+.avatar-projects img{clip-path:inset(24px 26px 0)}
+.avatar-trainings img{clip-path:inset(26px 24px 0)}
+.avatar-seminars img,.avatar-memberships img,.avatar-contact img{clip-path:inset(18px 24px 0)}
+.home-hero h1,.page-intro h1,.section-title h2{font-weight:700}
+.card-top h3,.project-info .card-top h3,.seminar-copy h2{font-weight:700}
+.card-top h3 span{font-weight:400}

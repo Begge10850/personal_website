@@ -36,7 +36,7 @@ export function ToolRow({ tools, labelled = false }: { tools: string; labelled?:
 export { Header } from "./_header";
 
 export function Avatar({ pose, hero = false }: { pose: string; hero?: boolean }) {
-  return <div className={`avatar ${hero ? "hero-avatar" : ""}`} aria-hidden="true"><img src={`/avatars/${pose}.png`} alt=""/></div>;
+  return <div className={`avatar avatar-${pose} ${hero ? "hero-avatar" : ""}`} aria-hidden="true"><img src={`/avatars/${pose}.png`} alt=""/></div>;
 }
 
 export function Intro({ pose, title, text }: { pose: string; title: string; text: string }) {
