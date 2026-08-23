@@ -109,3 +109,20 @@
 .home-hero h1,.page-intro h1,.section-title h2{font-weight:700}
 .card-top h3,.project-info .card-top h3,.seminar-copy h2{font-weight:700}
 .card-top h3 span{font-weight:400}
+
+/* Linked organizations, opaque navigation, and larger responsive cards */
+.site-header{background:#fff}
+.avatar-experience img{clip-path:inset(0 38px 0)}
+.org-link{display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-decoration-color:#bbb;text-underline-offset:3px}
+.org-link:hover{text-decoration-color:#181818}
+.org-link svg{width:12px;height:12px}
+.resume-card{padding:28px;grid-template-columns:108px 1fr;gap:22px}
+.card-icon{height:108px}
+.card-icon>a{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.card-icon img{width:82px;height:82px}
+.project-grid{gap:22px}
+.project-cover-image{height:210px}
+.project-info{padding:0 18px 20px}
+@media(max-width:1250px){.project-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.resume-card{padding:20px;grid-template-columns:84px 1fr;gap:16px}.card-icon{height:84px}.card-icon img{width:64px;height:64px}}
+@media(max-width:620px){.project-grid{grid-template-columns:1fr}.resume-card{grid-template-columns:1fr}.card-icon{width:84px}}
