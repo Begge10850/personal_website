@@ -37,12 +37,19 @@
 .tech-tile{height:86px;border-radius:9px}
 .tech-tile .tool-row{margin:0;display:flex;align-items:center;justify-content:center;width:100%}
 .tech-tile .tool-item{display:flex;flex-direction:column;align-items:center;gap:8px}
-.tech-tile .tool-icon{font-size:28px}
-.tech-tile .tool-item small{font-size:9px;color:var(--muted);font-weight:500}
+.tech-tile .tool-icon{font-size:30px}
+.tech-tile .tool-item small{display:none}
 .tool-row{display:flex;align-items:center;gap:8px;min-height:22px;margin:10px 0;color:#222}
 .tool-item{display:inline-flex;align-items:center;gap:8px}
 .tool-item>i{display:block;width:1px;height:18px;background:#bdbdbd}
-.tool-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px}
+.tool-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px;position:relative}
+.tool-icon::after{content:attr(data-tooltip);position:absolute;left:50%;bottom:calc(100% + 9px);transform:translate(-50%,4px);background:#171717;color:#fff;padding:5px 8px;border-radius:5px;font-size:10px;font-weight:500;line-height:1;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .12s ease,transform .12s ease;z-index:30}
+.tool-icon::before{content:"";position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);border:5px solid transparent;border-top-color:#171717;opacity:0;visibility:hidden;transition:opacity .12s ease;z-index:30}
+.tool-icon:hover::after,.tool-icon:focus-visible::after,.tool-icon:hover::before,.tool-icon:focus-visible::before{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.tool-icon:hover::before,.tool-icon:focus-visible::before{transform:translateX(-50%)}
+.tech-section .tech-grid{min-height:86px;align-items:start}
+.filters button{cursor:pointer;transition:background-color .15s ease,color .15s ease,border-color .15s ease}
+.filters button:hover{background:#f3f3f3}.filters .selected:hover{background:#171717}
 .tool-icon[title="Python"]{color:#3776ab}.tool-icon[title="Pandas"]{color:#150458}.tool-icon[title="Power BI"]{color:#f2c811}.tool-icon[title="React"]{color:#149eca}.tool-icon[title="FastAPI"]{color:#009688}.tool-icon[title="Git"]{color:#f05032}.tool-icon[title="Jira"]{color:#0052cc}.tool-icon[title="Confluence"]{color:#172b4d}.tool-icon[title="TypeScript"]{color:#3178c6}.tool-icon[title="Supabase"]{color:#3ecf8e}.tool-icon[title="Streamlit"]{color:#ff4b4b}
 .tool-fallback{font-size:10px;font-weight:800;color:#555;text-transform:uppercase}
 .resume-card{padding:24px;grid-template-columns:94px 1fr;gap:18px}

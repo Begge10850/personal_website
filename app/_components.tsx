@@ -6,7 +6,6 @@ import { SiConfluence, SiFastapi, SiGit, SiGithub, SiGoogle, SiJira, SiNextdotjs
 import { PiChartBarFill } from "react-icons/pi";
 import { TbChartTreemap } from "react-icons/tb";
 
-export const tech = ["Python", "Pandas", "SQL", "Power BI", "React", "Next.js", "FastAPI", "Git"];
 export const jobs = [
   { title: "Working Student IT Support", org: "Scalable Operations GmbH", place: "Germany", date: "Jun 2024 → May 2025", icon: "SC", copy: "Supported employees and workplace technology across device management, identity access, meeting-room hardware, onboarding, and IT operations.", tools: "Jira · Google Workspace · GitHub · Omada · Confluence", details: ["Installed, maintained, and repaired MacBooks, iPhones, and ChromeOS devices.", "Maintained Google Meet hardware across six Berlin meeting rooms and helped connect conference monitors.", "Backed up and repaired returned hardware and kept device inventory accurate in Jira Asset Management.", "Resolved daily hardware and software requests through Jira Service Management.", "Provisioned access to Jira, Google Workspace, and GitHub through Omada identity workflows.", "Handled employee onboarding and offboarding and maintained IT documentation in Confluence.", "Completed a LAN connectivity project for 72 desktop monitors, reducing office network latency."] },
   { title: "Data Analytics Intern", org: "Life Planner", place: "Kenya", date: "Aug 2021 → Dec 2022", icon: "LP", copy: "Worked full-time with the Data Analytics and Business Intelligence teams, preparing data and translating analysis into reports and business insights.", tools: "Data preparation · EDA · Dashboards · Reporting", details: ["Extracted and cleaned internal datasets, handled missing values, and checked data integrity.", "Conducted statistical analysis and exploratory data analysis to identify trends and correlations.", "Designed interactive dashboards and reports to communicate findings to stakeholders.", "Assisted with scripts that automated routine data extraction and reporting workflows.", "Produced weekly and monthly performance reports to track key metrics."] },
@@ -22,11 +21,11 @@ export const projects = [
   { title: "Explainable Robo Advisor", date: "2025", copy: "An explainable AI prototype combining portfolio guidance with transparent recommendations.", tools: "Python · XAI · Machine Learning", color: "dark", url: "https://github.com/Begge10850/explainable_robo_advisor" },
 ];
 
-function TechIcon({ name }: { name: string }) {
+export function TechIcon({ name }: { name: string }) {
   const icons: Record<string, ReactNode> = {
     Python: <SiPython/>, Pandas: <SiPandas/>, SQL: <SiPostgresql/>, "Power BI": <PiChartBarFill/>, React: <SiReact/>, "Next.js": <SiNextdotjs/>, FastAPI: <SiFastapi/>, Git: <SiGit/>, Jira: <SiJira/>, "Google Workspace": <SiGoogle/>, GitHub: <SiGithub/>, Confluence: <SiConfluence/>, Tableau: <TbChartTreemap/>, Streamlit: <SiStreamlit/>, TypeScript: <SiTypescript/>, Supabase: <SiSupabase/>
   };
-  return <span className="tool-icon" title={name} aria-label={name}>{icons[name] ?? <span className="tool-fallback">{name.slice(0,2)}</span>}</span>;
+  return <span className="tool-icon" data-tooltip={name} aria-label={name}>{icons[name] ?? <span className="tool-fallback">{name.slice(0,2)}</span>}</span>;
 }
 
 export function ToolRow({ tools, labelled = false }: { tools: string; labelled?: boolean }) {
@@ -46,11 +45,12 @@ export function Intro({ emoji, title, text }: { emoji: string; title: string; te
 
 export function ResumeCard({ item, expanded = false, detailLabel = "Responsibilities" }: { item: { title:string; org:string; place:string; date:string; icon:string; copy:string; tools?:string; grade?:string; details?:string[] }; expanded?: boolean; detailLabel?: string }) {
   const details = item.details ?? ["Add your most important responsibility or measurable achievement.", "Describe the tools you used and the outcome you delivered.", "Highlight collaboration, ownership, or technical leadership."];
-  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span><FiMapPin/> {item.place}</span><b><FiCalendar/> {item.date}</b></div></div>{item.tools && <ToolRow tools={item.tools}/>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{expanded && <ToggleDetails label={detailLabel} items={details}/>}</div></article>;
+  const displayedDetails = detailLabel.toLowerCase().includes("course") ? details.map(detail => detail.split(" — ")[0]) : details;
+  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span><FiMapPin/> {item.place}</span><b><FiCalendar/> {item.date}</b></div></div>{item.tools && <ToolRow tools={item.tools}/>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{expanded && <ToggleDetails label={detailLabel} items={displayedDetails}/>}</div></article>;
 }
 
 export function ProjectCard({ item }: { item: typeof projects[number] }) {
   return <article className="project-card"><div className={`project-cover ${item.color}`}><span>{item.title}</span><small>Featured project</small></div><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/><a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a></div></article>;
 }
 
-export function Footer() { return <footer>The source code is available on <a href="https://github.com/Begge10850/personal_website">GitHub</a>.</footer>; }
+export function Footer() { return <footer>The source code is available on <a href="https://github.com/Begge10850/personal_website" target="_blank" rel="noreferrer">GitHub</a>.</footer>; }
