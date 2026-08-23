@@ -1,7 +1,7 @@
 import { ToggleDetails } from "./_toggle";
 import type { ReactNode } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { FiCalendar, FiChevronDown, FiExternalLink, FiMapPin } from "react-icons/fi";
+import { FiAward, FiCalendar, FiChevronDown, FiExternalLink, FiMapPin } from "react-icons/fi";
 import { SiConfluence, SiFastapi, SiGit, SiGithub, SiGoogle, SiJira, SiNextdotjs, SiPandas, SiPostgresql, SiPython, SiReact, SiStreamlit, SiSupabase, SiTypescript } from "react-icons/si";
 import { PiChartBarFill } from "react-icons/pi";
 import { TbChartTreemap } from "react-icons/tb";
@@ -43,10 +43,10 @@ export function Intro({ emoji, title, text }: { emoji: string; title: string; te
   return <section className="page-intro"><div className="avatar" aria-hidden="true">{emoji}</div><h1>{title}</h1><p>{text}</p></section>;
 }
 
-export function ResumeCard({ item, expanded = false, detailLabel = "Responsibilities" }: { item: { title:string; org:string; place:string; date:string; icon:string; copy:string; tools?:string; grade?:string; details?:string[] }; expanded?: boolean; detailLabel?: string }) {
+export function ResumeCard({ item, expanded = false, detailLabel = "Responsibilities" }: { item: { title:string; org:string; place:string; date:string; icon:string; copy:string; tools?:string; grade?:string; details?:string[]; certificate?:string }; expanded?: boolean; detailLabel?: string }) {
   const details = item.details ?? ["Add your most important responsibility or measurable achievement.", "Describe the tools you used and the outcome you delivered.", "Highlight collaboration, ownership, or technical leadership."];
   const displayedDetails = detailLabel.toLowerCase().includes("course") ? details.map(detail => detail.split(" — ")[0]) : details;
-  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span><FiMapPin/> {item.place}</span><b><FiCalendar/> {item.date}</b></div></div>{item.tools && <ToolRow tools={item.tools}/>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{expanded && <ToggleDetails label={detailLabel} items={displayedDetails}/>}</div></article>;
+  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span><FiMapPin/> {item.place}</span><b><FiCalendar/> {item.date}</b></div></div>{item.tools && <ToolRow tools={item.tools}/>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{item.certificate && <a className="certificate-button" href={item.certificate} target="_blank" rel="noreferrer"><FiAward/> Certificate</a>}{expanded && <ToggleDetails label={detailLabel} items={displayedDetails}/>}</div></article>;
 }
 
 export function ProjectCard({ item }: { item: typeof projects[number] }) {
