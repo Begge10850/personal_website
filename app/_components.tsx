@@ -15,10 +15,10 @@ export const degrees = [
   { title: "Diploma in Business Information Technology", org: "Strathmore University", url: "https://strathmore.edu/", place: "Nairobi, Kenya", date: "Jan 2018 → Sep 2021", icon: "SU", logo: "/brands/strathmore.png", copy: "A business-focused information technology diploma covering programming, databases, software engineering, networks, and management.", grade: "Pass — weighted average 57.74% (C)", details: ["Introduction to Ethics — 54.50% (C)", "Fundamentals of Information Technology — 57.35% (C)", "Fundamentals of Accounting — 64.88% (B)", "Mathematics for Business Computing — 55.33% (C)", "Introduction to Programming — 50.00% (C)", "Business Communication — 67.83% (B)", "Database Systems — 59.83% (C)", "Data Structures and Algorithms — 53.93% (C)", "Business Statistics — 58.44% (C)", "Business Organization and Management — 60.00% (B)", "Business Finance and Economics — 70.58% (B)", "Object Oriented Programming — 60.60% (B)", "Marketing and Entrepreneurship Skill — 65.00% (B)", "Web Application Development — 50.46% (C)", "System Analysis and Design — 50.77% (C)", "Software Engineering — 51.17% (C)", "Computer Networks — 50.22% (C)", "IS Project — 58.50% (C)"] },
 ];
 export const projects = [
-  { title: "Smart Document Assistant", date: "2026", copy: "An intelligent document workspace for grounded answers, summaries, and structured insights.", tools: "Python · RAG · Streamlit", image: "/projects/smart-document.png", color: "blue", url: "https://github.com/Begge10850/smart_doc_assistant" },
-  { title: "Performance Analytics", date: "2025", copy: "A statistical analysis project that turns complex student-performance data into actionable findings.", tools: "Python · Statistics · Jupyter", image: "/projects/performance-analytics.png", color: "rose", url: "https://github.com/Begge10850/student-performance-statistical-analysis" },
-  { title: "Finance Tracker", date: "2025", copy: "A clear personal-finance experience for tracking budgets, transactions, and financial goals.", tools: "React · TypeScript · Supabase", image: "/projects/finance-tracker.png", color: "green", url: "https://github.com/Begge10850/wealthtrack-mobile" },
-  { title: "Explainable Robo Advisor", date: "2025", copy: "An explainable AI prototype combining portfolio guidance with transparent recommendations.", tools: "Python · XAI · Machine Learning", image: "/projects/robo-advisor.png", color: "dark", url: "https://github.com/Begge10850/explainable_robo_advisor" },
+  { title: "Smart Document Assistant", date: "2026", copy: "An intelligent document workspace for grounded answers, summaries, and structured insights.", tools: "Python · RAG · Streamlit", image: "/projects/smart-document.jpg", color: "blue", url: "https://github.com/Begge10850/smart_doc_assistant" },
+  { title: "Performance Analytics", date: "2025", copy: "A statistical analysis project that turns complex student-performance data into actionable findings.", tools: "Python · Statistics · Jupyter", image: "/projects/performance-analytics.jpg", color: "rose", url: "https://github.com/Begge10850/student-performance-statistical-analysis" },
+  { title: "Finance Tracker", date: "2025", copy: "A clear personal-finance experience for tracking budgets, transactions, and financial goals.", tools: "React · TypeScript · Supabase", image: "/projects/finance-tracker.jpg", color: "green", url: "https://github.com/Begge10850/wealthtrack-mobile" },
+  { title: "Explainable Robo Advisor", date: "2025", copy: "An explainable AI prototype combining portfolio guidance with transparent recommendations.", tools: "Python · XAI · Machine Learning", image: "/projects/robo-advisor.jpg", color: "dark", url: "https://github.com/Begge10850/explainable_robo_advisor" },
 ];
 
 export function TechIcon({ name }: { name: string }) {
@@ -36,7 +36,8 @@ export function ToolRow({ tools, labelled = false }: { tools: string; labelled?:
 export { Header } from "./_header";
 
 export function Avatar({ pose, hero = false }: { pose: string; hero?: boolean }) {
-  return <div className={`avatar avatar-${pose} ${hero ? "hero-avatar" : ""}`} aria-hidden="true"><img src={`/avatars/${pose}.png`} alt=""/></div>;
+  const src = pose === "education" || pose === "projects" ? `/avatars/${pose}-clean.jpg` : `/avatars/${pose}.png`;
+  return <div className={`avatar avatar-${pose} ${hero ? "hero-avatar" : ""}`} aria-hidden="true"><img src={src} alt="" decoding="async"/></div>;
 }
 
 export function Intro({ pose, title, text }: { pose: string; title: string; text: string }) {
@@ -51,7 +52,7 @@ export function ResumeCard({ item, expanded = false, detailLabel = "Responsibili
 }
 
 export function ProjectCard({ item }: { item: typeof projects[number] }) {
-  return <article className="project-card"><img className="project-cover-image" src={item.image} alt={`${item.title} project preview`}/><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/><a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a></div></article>;
+  return <article className="project-card"><img className="project-cover-image" src={item.image} alt={`${item.title} project preview`} loading="lazy" decoding="async"/><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/><a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a></div></article>;
 }
 
 export function Footer() { return null; }
