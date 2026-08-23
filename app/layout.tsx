@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Data & Software Engineer",
-  description: "Personal portfolio of a data and software engineer building useful, dependable digital products.",
+  title: "Your Name — Data & Software Portfolio",
+  description: "A clean personal portfolio for work across data, artificial intelligence, and modern software.",
   openGraph: {
-    title: "Your Name — Data & Software Engineer",
-    description: "I build useful things with data and code.",
+    title: "Your Name — Data & Software Portfolio",
+    description: "Data, AI & modern software.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Personal portfolio preview" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name — Data & Software Engineer",
-    description: "I build useful things with data and code.",
+    title: "Your Name — Data & Software Portfolio",
+    description: "Data, AI & modern software.",
     images: ["/og.png"],
   },
   icons: {

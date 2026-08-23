@@ -1,0 +1,2 @@
+import { Footer, Header, Intro, ProjectCard, projects } from "../_components";
+export default function Projects(){return <><Header active="Projects"/><main className="container"><Intro emoji="👨🏿‍💻" title="My Projects" text="These projects combine personal experiments and practical applications. They highlight the skills I’ve built and the problems I enjoy solving."/><section className="page-content project-grid two-grid">{projects.map(item=><ProjectCard key={item.title} item={item}/>)}</section></main><Footer/></>}

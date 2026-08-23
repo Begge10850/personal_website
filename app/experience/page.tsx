@@ -1,0 +1,2 @@
+import { Footer, Header, Intro, jobs, ResumeCard } from "../_components";
+export default function Experience(){return <><Header active="Experience"/><main className="container"><Intro emoji="🧑🏿‍💼" title="My Experience" text="Here is an overview of my work experience, showing the skills and knowledge I’ve gained across different roles and industries."/><section className="page-content stack">{jobs.map(item=><ResumeCard key={item.title} item={item} expanded/>)}</section></main><Footer/></>}

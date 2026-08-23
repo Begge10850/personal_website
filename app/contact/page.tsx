@@ -1,0 +1,2 @@
+import { Footer, Header, Intro } from "../_components";
+export default function Contact(){return <><Header active="Contact"/><main className="container"><Intro emoji="😊" title="Contact Me" text="I am open to project suggestions, professional opportunities, and thoughtful conversations about data, AI, and software."/><div className="contact-card"><span><b>Connect via Email</b><small>hello@example.com</small></span><a className="soft-button" href="mailto:hello@example.com">Email me</a></div></main><Footer/></>}

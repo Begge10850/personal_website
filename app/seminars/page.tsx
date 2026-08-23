@@ -1,0 +1,3 @@
+import { Footer, Header, Intro, ResumeCard } from "../_components";
+const items=[{title:"Technology & Innovation Seminar",org:"Professional Community",place:"Europe",date:"2025",icon:"EV",copy:"Add conferences, seminars, workshops, and industry events you attended."}];
+export default function Seminars(){return <><Header/><main className="container"><Intro emoji="🎤" title="My Seminars" text="Workshops, talks, and events that broadened my technical and professional perspective."/><section className="page-content stack">{items.map(i=><ResumeCard key={i.title} item={i}/>)}</section></main><Footer/></>}

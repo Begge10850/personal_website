@@ -1,0 +1,2 @@
+import { degrees, Footer, Header, Intro, ResumeCard } from "../_components";
+export default function Education(){return <><Header active="Education"/><main className="container"><Intro emoji="🎓" title="My Education" text="Here is an overview of my academic history, degrees, and the subjects that shaped my technical foundation."/><div className="notice">▣ Add your grades in the grading system used by your university.</div><section className="page-content stack">{degrees.map(item=><ResumeCard key={item.title} item={item} expanded/>)}</section></main><Footer/></>}
