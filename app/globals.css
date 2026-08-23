@@ -18,3 +18,43 @@
 .grade{margin-top:4px!important}
 .home-projects{grid-template-columns:repeat(2,1fr)}
 @media(max-width:520px){.home-projects{grid-template-columns:1fr}}
+
+/* Reference-matched sizing, iconography, and card interactions */
+.header-inner{max-width:960px;gap:22px}
+.logo{width:30px;height:30px;display:flex;align-items:center;justify-content:center;margin-right:2px;overflow:hidden}
+.logo img{width:28px;height:28px;object-fit:cover;filter:contrast(1.35)}
+.extra>button{display:inline-flex;align-items:center;gap:4px}
+.extra>button svg{width:13px;height:13px;transition:transform .16s ease}
+.extra:hover>button svg,.extra:focus-within>button svg{transform:rotate(180deg)}
+.socials{gap:12px;font-size:16px}
+.socials a{display:flex;align-items:center;justify-content:center;width:22px;height:22px}
+.social-divider{width:1px;height:18px;background:var(--line)}
+.container{max-width:960px}
+.home-hero{padding:68px 0 44px}
+.home-section{margin:38px 0 52px}
+.section-title h2{font-size:24px}
+.tech-grid{grid-template-columns:repeat(7,1fr);gap:18px}
+.tech-tile{height:86px;border-radius:9px}
+.tech-tile .tool-row{margin:0;display:flex;align-items:center;justify-content:center;width:100%}
+.tech-tile .tool-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.tech-tile .tool-icon{font-size:28px}
+.tech-tile .tool-item small{font-size:9px;color:var(--muted);font-weight:500}
+.tool-row{display:flex;align-items:center;gap:8px;min-height:22px;margin:10px 0;color:#222}
+.tool-item{display:inline-flex;align-items:center;gap:8px}
+.tool-item>i{display:block;width:1px;height:18px;background:#bdbdbd}
+.tool-icon{display:inline-flex;align-items:center;justify-content:center;font-size:18px}
+.tool-icon[title="Python"]{color:#3776ab}.tool-icon[title="Pandas"]{color:#150458}.tool-icon[title="Power BI"]{color:#f2c811}.tool-icon[title="React"]{color:#149eca}.tool-icon[title="FastAPI"]{color:#009688}.tool-icon[title="Git"]{color:#f05032}.tool-icon[title="Jira"]{color:#0052cc}.tool-icon[title="Confluence"]{color:#172b4d}.tool-icon[title="TypeScript"]{color:#3178c6}.tool-icon[title="Supabase"]{color:#3ecf8e}.tool-icon[title="Streamlit"]{color:#ff4b4b}
+.tool-fallback{font-size:10px;font-weight:800;color:#555;text-transform:uppercase}
+.resume-card{padding:24px;grid-template-columns:94px 1fr;gap:18px}
+.card-icon{height:94px}
+.card-main ul{margin-top:10px;padding-left:19px;list-style:disc}
+.card-main li{padding-left:2px;margin:3px 0}
+.pills span,.pills b{gap:4px}
+.pills svg{width:12px;height:12px}
+.underlink{margin-top:2px}
+.github-button{position:relative;font-size:15px}
+.github-button .external-mark{position:absolute;width:8px;height:8px;right:3px;top:3px;background:#fff}
+.hero-links a{font-size:18px;display:flex;align-items:center;justify-content:center}
+.badges svg{width:12px;height:12px;margin-right:3px}
+@media(max-width:760px){.header-inner{max-width:100%}.tech-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:520px){.tech-grid{grid-template-columns:repeat(2,1fr)}.resume-card{grid-template-columns:72px 1fr}.card-icon{height:72px}.header-inner nav{padding-bottom:2px}}

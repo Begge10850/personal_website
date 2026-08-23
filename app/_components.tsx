@@ -1,4 +1,10 @@
 import { ToggleDetails } from "./_toggle";
+import type { ReactNode } from "react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FiCalendar, FiChevronDown, FiExternalLink, FiMapPin } from "react-icons/fi";
+import { SiConfluence, SiFastapi, SiGit, SiGithub, SiGoogle, SiJira, SiNextdotjs, SiPandas, SiPostgresql, SiPython, SiReact, SiStreamlit, SiSupabase, SiTypescript } from "react-icons/si";
+import { PiChartBarFill } from "react-icons/pi";
+import { TbChartTreemap } from "react-icons/tb";
 
 export const tech = ["Python", "Pandas", "SQL", "Power BI", "React", "Next.js", "FastAPI", "Git"];
 export const jobs = [
@@ -16,10 +22,22 @@ export const projects = [
   { title: "Explainable Robo Advisor", date: "2025", copy: "An explainable AI prototype combining portfolio guidance with transparent recommendations.", tools: "Python · XAI · Machine Learning", color: "dark", url: "https://github.com/Begge10850/explainable_robo_advisor" },
 ];
 
+function TechIcon({ name }: { name: string }) {
+  const icons: Record<string, ReactNode> = {
+    Python: <SiPython/>, Pandas: <SiPandas/>, SQL: <SiPostgresql/>, "Power BI": <PiChartBarFill/>, React: <SiReact/>, "Next.js": <SiNextdotjs/>, FastAPI: <SiFastapi/>, Git: <SiGit/>, Jira: <SiJira/>, "Google Workspace": <SiGoogle/>, GitHub: <SiGithub/>, Confluence: <SiConfluence/>, Tableau: <TbChartTreemap/>, Streamlit: <SiStreamlit/>, TypeScript: <SiTypescript/>, Supabase: <SiSupabase/>
+  };
+  return <span className="tool-icon" title={name} aria-label={name}>{icons[name] ?? <span className="tool-fallback">{name.slice(0,2)}</span>}</span>;
+}
+
+export function ToolRow({ tools, labelled = false }: { tools: string; labelled?: boolean }) {
+  const items = tools.split(" · ");
+  return <div className={`tool-row ${labelled ? "labelled" : ""}`}>{items.map((item, index) => <span className="tool-item" key={item}>{index > 0 && <i aria-hidden="true"/>}<TechIcon name={item}/>{labelled && <small>{item}</small>}</span>)}</div>;
+}
+
 export function Header({ active = "Home" }: { active?: string }) {
   const nav = ["Home", "Experience", "Education", "Projects"];
   const extraActive = ["Trainings", "Seminars", "Memberships"].includes(active);
-  return <header className="site-header"><div className="header-inner"><a className="logo" href="/" aria-label="Home">TO</a><nav>{nav.map(item => <a key={item} className={active === item ? "active" : ""} href={item === "Home" ? "/" : `/${item.toLowerCase()}`}>{item}</a>)}<div className="extra"><button className={extraActive ? "active" : ""} type="button" aria-haspopup="true">Extra⌄</button><div className="extra-menu"><a href="/trainings"><b>Trainings</b><span>Courses and certifications</span></a><a href="/seminars"><b>Seminars</b><span>Workshops and events</span></a><a href="/memberships"><b>Memberships</b><span>Professional communities</span></a></div></div><a className={active === "Contact" ? "active" : ""} href="/contact">Contact</a></nav><div className="socials"><a href="https://github.com/Begge10850" aria-label="GitHub">●</a><a href="#" aria-label="LinkedIn">in</a></div></div></header>;
+  return <header className="site-header"><div className="header-inner"><a className="logo" href="/" aria-label="Treva Antony Ogwang — Home"><img src="/owl-mark.png" alt=""/></a><nav>{nav.map(item => <a key={item} className={active === item ? "active" : ""} href={item === "Home" ? "/" : `/${item.toLowerCase()}`}>{item}</a>)}<div className="extra"><button className={extraActive ? "active" : ""} type="button" aria-haspopup="true">Extra <FiChevronDown aria-hidden="true"/></button><div className="extra-menu"><a href="/trainings"><b>Trainings</b><span>Courses and certifications</span></a><a href="/seminars"><b>Seminars</b><span>Workshops and events</span></a><a href="/memberships"><b>Memberships</b><span>Professional communities</span></a></div></div><a className={active === "Contact" ? "active" : ""} href="/contact">Contact</a></nav><div className="socials"><a href="https://github.com/Begge10850" target="_blank" rel="noreferrer" aria-label="Treva on GitHub"><FaGithub/></a><span className="social-divider"/><a href="https://de.linkedin.com/in/treva-ogwang-87235626b" target="_blank" rel="noreferrer" aria-label="Treva on LinkedIn"><FaLinkedinIn/></a></div></div></header>;
 }
 
 export function Intro({ emoji, title, text }: { emoji: string; title: string; text: string }) {
@@ -28,11 +46,11 @@ export function Intro({ emoji, title, text }: { emoji: string; title: string; te
 
 export function ResumeCard({ item, expanded = false, detailLabel = "Responsibilities" }: { item: { title:string; org:string; place:string; date:string; icon:string; copy:string; tools?:string; grade?:string; details?:string[] }; expanded?: boolean; detailLabel?: string }) {
   const details = item.details ?? ["Add your most important responsibility or measurable achievement.", "Describe the tools you used and the outcome you delivered.", "Highlight collaboration, ownership, or technical leadership."];
-  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span>⌖ {item.place}</span><b>▣ {item.date}</b></div></div>{item.tools && <div className="tool-row">{item.tools}</div>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{expanded && <ToggleDetails label={detailLabel} items={details}/>}</div></article>;
+  return <article className="resume-card"><div className="card-icon">{item.icon}</div><div className="card-main"><div className="card-top"><h3>{item.title} <span>at {item.org}</span></h3><div className="pills"><span><FiMapPin/> {item.place}</span><b><FiCalendar/> {item.date}</b></div></div>{item.tools && <ToolRow tools={item.tools}/>}<p>{item.copy}</p>{item.grade && <p className="grade"><strong>Overall grade:</strong> {item.grade}</p>}{expanded && <ToggleDetails label={detailLabel} items={details}/>}</div></article>;
 }
 
 export function ProjectCard({ item }: { item: typeof projects[number] }) {
-  return <article className="project-card"><div className={`project-cover ${item.color}`}><span>{item.title}</span><small>Featured project</small></div><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b>▣ {item.date}</b></div></div><p>{item.copy}</p><div className="tool-row">{item.tools}</div><a className="github-button" href={item.url} aria-label={`${item.title} on GitHub`}>●</a></div></article>;
+  return <article className="project-card"><div className={`project-cover ${item.color}`}><span>{item.title}</span><small>Featured project</small></div><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/><a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a></div></article>;
 }
 
 export function Footer() { return <footer>The source code is available on <a href="https://github.com/Begge10850/personal_website">GitHub</a>.</footer>; }
