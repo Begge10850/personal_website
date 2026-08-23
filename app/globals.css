@@ -7,6 +7,7 @@
 .header-inner nav>a,.extra>button,.view-button,.soft-button,.project-card,.resume-card{transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
 .header-inner nav>a:hover,.extra>button:hover{background:#f4f4f4;color:#181818}
 .header-inner nav>.active,.header-inner nav>.active:hover{background:#171717;color:#fff}
+.extra>button.active,.extra>button.active:hover{background:#171717;color:#fff}
 .view-button:hover,.soft-button:hover{background:#ededed;border-color:#d8d8d8}
 .project-card:hover,.resume-card:hover{border-color:#c9c9c9;box-shadow:0 4px 12px #0000000c}
 .extra-menu{visibility:hidden;display:block;opacity:0;transform:translateY(-5px);pointer-events:none;transition:opacity .16s ease,transform .16s ease,visibility .16s}
