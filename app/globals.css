@@ -179,5 +179,6 @@ body{font-size:16px}
 .resume-card,.project-card,.seminar-card,.contact-card{background:#fafafa}
 .card-icon,.seminar-gallery{background:#fff}
 .pills b{font-size:14px;padding:7px 11px}
+.project-info .pills b{font-size:12px;padding:7px 10px}
 .seminar-date{font-size:13px;padding:7px 11px}
 .cv-button{font-size:13px!important;gap:7px}
