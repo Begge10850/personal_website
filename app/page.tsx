@@ -28,8 +28,6 @@ export default function Home() {
         <div className="orbit" aria-hidden="true"><span>✦</span><i /><b>⌁</b></div>
       </section>
 
-      <section className="marquee" aria-label="Areas of expertise"><div>DATA ENGINEERING <span>✦</span> ARTIFICIAL INTELLIGENCE <span>✦</span> PRODUCT THINKING <span>✦</span> FULL-STACK DEVELOPMENT <span>✦</span></div></section>
-
       <section className="section split" id="about">
         <div><p className="kicker">01 / ABOUT</p><h2>Curious by nature.<br /><span>Practical by design.</span></h2></div>
         <div className="about-copy"><p>I enjoy working where technology meets real human needs. My approach combines analytical thinking, careful engineering, and a strong sense of how a product should feel.</p><p>Whether I&apos;m shaping a data pipeline or polishing an interface, I care about clarity, reliability, and the small details that make work memorable.</p><div className="facts"><div><strong>4+</strong><span>Years building</span></div><div><strong>12</strong><span>Projects shipped</span></div><div><strong>3</strong><span>Countries worked in</span></div></div></div>
