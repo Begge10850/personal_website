@@ -36,7 +36,8 @@ export function ToolRow({ tools, labelled = false }: { tools: string; labelled?:
 export { Header } from "./_header";
 
 export function Avatar({ pose, hero = false }: { pose: string; hero?: boolean }) {
-  const src = pose === "education" || pose === "projects" ? `/avatars/${pose}-clean.jpg` : `/avatars/${pose}.png`;
+  const cleanPoses = new Set(["education", "projects", "trainings", "seminars"]);
+  const src = cleanPoses.has(pose) ? `/avatars/${pose}-clean.jpg` : `/avatars/${pose}.png`;
   return <div className={`avatar avatar-${pose} ${hero ? "hero-avatar" : ""}`} aria-hidden="true"><img src={src} alt="" decoding="async"/></div>;
 }
 
