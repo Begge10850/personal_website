@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Treva Antony Ogwang — Data & Software Portfolio",
-  description: "A clean personal portfolio for work across data, artificial intelligence, and modern software.",
+  title: "Treva Antony Ogwang — Product, Data & Technology",
+  description: "Product case studies and practical work across fintech, data, and modern technology.",
   openGraph: {
-    title: "Treva Antony Ogwang — Data & Software Portfolio",
-    description: "Data, AI & modern software.",
+    title: "Treva Antony Ogwang — Product, Data & Technology",
+    description: "Product case studies and practical work across fintech, data, and modern technology.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Personal portfolio preview" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Treva Antony Ogwang — Data & Software Portfolio",
-    description: "Data, AI & modern software.",
+    title: "Treva Antony Ogwang — Product, Data & Technology",
+    description: "Product case studies and practical work across fintech, data, and modern technology.",
     images: ["/og.png"],
   },
   icons: {

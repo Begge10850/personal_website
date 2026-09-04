@@ -17,7 +17,7 @@ export const degrees = [
 export const projects = [
   { title: "Smart Document Assistant", date: "2026", copy: "An intelligent document workspace for grounded answers, summaries, and structured insights.", tools: "Python · RAG · Streamlit", image: "/projects/smart-document.jpg", color: "blue", url: "https://github.com/Begge10850/smart_doc_assistant" },
   { title: "Performance Analytics", date: "2025", copy: "A statistical analysis project that turns complex student-performance data into actionable findings.", tools: "Python · Statistics · Jupyter", image: "/projects/performance-analytics.jpg", color: "rose", url: "https://github.com/Begge10850/student-performance-statistical-analysis" },
-  { title: "Finance Tracker", date: "2025", copy: "A clear personal-finance experience for tracking budgets, transactions, and financial goals.", tools: "React · TypeScript · Supabase", image: "/projects/finance-tracker.jpg", color: "green", url: "https://github.com/Begge10850/wealthtrack-mobile" },
+  { title: "Finance Tracker", date: "2026", copy: "A savings-first personal finance product connecting budgets, goal plans, contribution tracking, forecasts, and financial behaviour.", tools: "React · TypeScript · Supabase", image: "/projects/finance-tracker.jpg", color: "green", url: "/projects/savings-first-finance", caseStudy: true },
   { title: "Explainable Robo Advisor", date: "2025", copy: "An explainable AI prototype combining portfolio guidance with transparent recommendations.", tools: "Python · XAI · Machine Learning", image: "/projects/robo-advisor.jpg", color: "dark", url: "https://github.com/Begge10850/explainable_robo_advisor" },
 ];
 
@@ -53,7 +53,7 @@ export function ResumeCard({ item, expanded = false, detailLabel = "Responsibili
 }
 
 export function ProjectCard({ item }: { item: typeof projects[number] }) {
-  return <article className="project-card"><img className="project-cover-image" src={item.image} alt={`${item.title} project preview`} loading="lazy" decoding="async"/><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/><a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a></div></article>;
+  return <article className="project-card"><img className="project-cover-image" src={item.image} alt={`${item.title} project preview`} loading="lazy" decoding="async"/><div className="project-info"><div className="card-top"><h3>{item.title}</h3><div className="pills"><b><FiCalendar/> {item.date}</b></div></div><p>{item.copy}</p><ToolRow tools={item.tools}/>{"caseStudy" in item && item.caseStudy ? <a className="case-study-link" href={item.url}>Read case study <FiExternalLink/></a> : <a className="github-button" href={item.url} target="_blank" rel="noreferrer" aria-label={`${item.title} on GitHub`}><FaGithub/><FiExternalLink className="external-mark"/></a>}</div></article>;
 }
 
 export function Footer() { return null; }
