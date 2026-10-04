@@ -4,19 +4,23 @@ import test from "node:test";
 
 const pageUrl = new URL("../app/projects/routepulse-mobility-analytics/page.tsx", import.meta.url);
 
-test("RoutePulse case study keeps its public evidence and decision boundaries", async () => {
+test("RoutePulse case study keeps its evidence, teaching detail and decision boundaries", async () => {
   const [page, projects] = await Promise.all([
     readFile(pageUrl, "utf8"),
     readFile(new URL("../app/_components.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /94,839,920/);
-  assert.match(page, /1,528,690/);
+  assert.match(page, /1,755,847/);
   assert.match(page, /87,587/);
-  assert.match(page, /zero category mismatches/i);
-  assert.match(page, /do not establish operational causes/i);
-  assert.match(page, /GTFS-Realtime reference/);
+  assert.match(page, /15 numbered SQL worksheets/i);
+  assert.match(page, /37 unit tests/i);
+  assert.match(page, /09_unique_stop_events\.sql/);
+  assert.match(page, /15_validate_timing_categories\.sql/);
+  assert.match(page, /LEFT JOIN/);
+  assert.match(page, /does not establish the operational cause/i);
   assert.match(projects, /routepulse-mobility-analytics/);
+  assert.match(projects, /routepulse-cover\.webp/);
 });
 
 test("RoutePulse case-study images are present", async () => {
@@ -24,6 +28,12 @@ test("RoutePulse case-study images are present", async () => {
     "dashboard-overview.png",
     "network-map.png",
     "station-analysis.png",
+    "station-berlin-regional-rail.png",
+    "station-berlin-bus.png",
+    "lines-bus.png",
+    "lines-ubahn.png",
+    "time-analysis.png",
+    "routepulse-cover.webp",
     "validation-results.png",
   ]) {
     await access(new URL(`../public/projects/routepulse/${name}`, import.meta.url));
