@@ -53,3 +53,11 @@ test("primary navigation exposes Trainings and Seminars without an Extra menu", 
   assert.doesNotMatch(header, />Extra</);
   assert.doesNotMatch(header, /extra-menu/);
 });
+
+test("homepage features RoutePulse as the only latest project", async () => {
+  const home = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+
+  assert.match(home, /<h2>Latest Project<\/h2>/);
+  assert.match(home, /\{\[projects\[0\]\]\.map/);
+  assert.doesNotMatch(home, /projects\[2\]/);
+});
