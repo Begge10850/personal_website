@@ -27,6 +27,11 @@ test("RoutePulse case-study images are present", async () => {
   for (const name of [
     "dashboard-overview.png",
     "network-map.png",
+    "map-bus.webp",
+    "map-ubahn.webp",
+    "map-sbahn.webp",
+    "map-tram.webp",
+    "map-regional-rail.webp",
     "station-analysis.png",
     "station-berlin-regional-rail.png",
     "station-berlin-bus.png",
@@ -38,4 +43,13 @@ test("RoutePulse case-study images are present", async () => {
   ]) {
     await access(new URL(`../public/projects/routepulse/${name}`, import.meta.url));
   }
+});
+
+test("primary navigation exposes Trainings and Seminars without an Extra menu", async () => {
+  const header = await readFile(new URL("../app/_header.tsx", import.meta.url), "utf8");
+
+  assert.match(header, /\["Trainings", "\/trainings"\]/);
+  assert.match(header, /\["Seminars", "\/seminars"\]/);
+  assert.doesNotMatch(header, />Extra</);
+  assert.doesNotMatch(header, /extra-menu/);
 });

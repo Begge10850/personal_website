@@ -1,39 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const links = [
   ["Home", "/"],
   ["Experience", "/experience"],
   ["Education", "/education"],
   ["Projects", "/projects"],
+  ["Trainings", "/trainings"],
+  ["Seminars", "/seminars"],
 ] as const;
 
 export function Header({ active = "Home" }: { active?: string }) {
-  const [extraOpen, setExtraOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const extraRef = useRef<HTMLDivElement>(null);
-  const extraActive = ["Trainings", "Seminars"].includes(active);
-
-  useEffect(() => {
-    const closeExtra = (event: MouseEvent) => {
-      if (!extraRef.current?.contains(event.target as Node)) setExtraOpen(false);
-    };
-    const escape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setExtraOpen(false);
-        setMobileOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", closeExtra);
-    document.addEventListener("keydown", escape);
-    return () => {
-      document.removeEventListener("mousedown", closeExtra);
-      document.removeEventListener("keydown", escape);
-    };
-  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", mobileOpen);
@@ -54,35 +37,16 @@ export function Header({ active = "Home" }: { active?: string }) {
           {mobileOpen ? <FiX /> : <FiMenu />}
         </button>
 
-        <a className="logo" href="/" aria-label="Treva Antony Ogwang — Home">
-          <img src="/owl-mark.png" alt="" />
-        </a>
+        <Link className="logo" href="/" aria-label="Treva Antony Ogwang — Home">
+          <Image src="/owl-mark.png" alt="" width={28} height={28} priority />
+        </Link>
 
         <nav id="primary-navigation" className={mobileOpen ? "mobile-open" : ""}>
           <span className="mobile-menu-label">Menu</span>
           {links.map(([label, href]) => (
-            <a key={label} className={active === label ? "active" : ""} href={href}>{label}</a>
+            <Link key={label} className={active === label ? "active" : ""} href={href}>{label}</Link>
           ))}
-          <div className={`extra ${extraOpen ? "open" : ""}`} ref={extraRef}>
-            <button
-              className={extraActive ? "active" : ""}
-              type="button"
-              aria-haspopup="menu"
-              aria-expanded={extraOpen}
-              onClick={() => setExtraOpen((value) => !value)}
-            >
-              Extra <FiChevronDown aria-hidden="true" />
-            </button>
-            <div className="extra-menu" role="menu">
-              <a href="/trainings" role="menuitem"><b>Trainings</b><span>Courses and certifications</span></a>
-              <a href="/seminars" role="menuitem"><b>Seminars</b><span>Workshops and events</span></a>
-            </div>
-          </div>
-          <div className="mobile-extra-links">
-            <a className={active === "Trainings" ? "active" : ""} href="/trainings">Trainings</a>
-            <a className={active === "Seminars" ? "active" : ""} href="/seminars">Seminars</a>
-          </div>
-          <a className={active === "Contact" ? "active" : ""} href="/contact">Contact</a>
+          <Link className={active === "Contact" ? "active" : ""} href="/contact">Contact</Link>
           <div className="mobile-social-links">
             <span className="mobile-menu-label">Socials</span>
             <a href="https://github.com/Begge10850" target="_blank" rel="noreferrer">GitHub</a>
