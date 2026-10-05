@@ -50,6 +50,9 @@ test("primary navigation exposes Trainings and Seminars without an Extra menu", 
 
   assert.match(header, /\["Trainings", "\/trainings"\]/);
   assert.match(header, /\["Seminars", "\/seminars"\]/);
+  assert.match(header, /<a key=\{label\}[^>]*href=\{href\}/);
+  assert.match(header, /<a className=\{active === "Contact"/);
+  assert.doesNotMatch(header, /from "next\/link"/);
   assert.doesNotMatch(header, />Extra</);
   assert.doesNotMatch(header, /extra-menu/);
 });

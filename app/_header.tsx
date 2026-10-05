@@ -1,8 +1,8 @@
 "use client";
 
+/* eslint-disable @next/next/no-html-link-for-pages, @next/next/no-img-element -- Full document navigation is intentional: client-side Link navigation is unreliable in the deployed Vinext worker. */
+
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -37,16 +37,16 @@ export function Header({ active = "Home" }: { active?: string }) {
           {mobileOpen ? <FiX /> : <FiMenu />}
         </button>
 
-        <Link className="logo" href="/" aria-label="Treva Antony Ogwang — Home">
-          <Image src="/owl-mark.png" alt="" width={28} height={28} priority />
-        </Link>
+        <a className="logo" href="/" aria-label="Treva Antony Ogwang — Home">
+          <img src="/owl-mark.png" alt="" />
+        </a>
 
         <nav id="primary-navigation" className={mobileOpen ? "mobile-open" : ""}>
           <span className="mobile-menu-label">Menu</span>
           {links.map(([label, href]) => (
-            <Link key={label} className={active === label ? "active" : ""} href={href}>{label}</Link>
+            <a key={label} className={active === label ? "active" : ""} href={href}>{label}</a>
           ))}
-          <Link className={active === "Contact" ? "active" : ""} href="/contact">Contact</Link>
+          <a className={active === "Contact" ? "active" : ""} href="/contact">Contact</a>
           <div className="mobile-social-links">
             <span className="mobile-menu-label">Socials</span>
             <a href="https://github.com/Begge10850" target="_blank" rel="noreferrer">GitHub</a>
