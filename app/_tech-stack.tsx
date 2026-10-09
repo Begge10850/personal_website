@@ -1,24 +1,66 @@
-"use client";
-
-import { useState } from "react";
-import { TechIcon } from "./_components";
-
-const items = [
-  { name: "Python", categories: ["Languages"] },
-  { name: "Pandas", categories: ["Data"] },
-  { name: "SQL", categories: ["Languages", "Data"] },
-  { name: "Power BI", categories: ["Data", "Tools"] },
-  { name: "React", categories: ["Frontend"] },
-  { name: "Next.js", categories: ["Frontend"] },
-  { name: "FastAPI", categories: ["Tools"] },
-  { name: "Git", categories: ["Tools"] },
+const skillGroups = [
+  {
+    title: "Programming & Querying",
+    skills: ["Python", "SQL", "TypeScript"],
+  },
+  {
+    title: "Data Engineering & Analytics",
+    skills: [
+      "Snowflake",
+      "PostgreSQL",
+      "Amazon S3",
+      "Parquet",
+      "Power BI",
+      "Data Modelling",
+      "Data Quality Testing",
+    ],
+  },
+  {
+    title: "Machine Learning & AI",
+    skills: [
+      "scikit-learn",
+      "SciPy",
+      "Recommender Systems",
+      "RAG",
+      "LLM Workflows",
+      "pgvector",
+    ],
+  },
+  {
+    title: "Applications & Interfaces",
+    skills: ["Streamlit", "React", "React Native", "Next.js", "Supabase"],
+  },
+  {
+    title: "Delivery & Collaboration",
+    skills: ["Git", "GitHub", "Make", "Jira", "Confluence", "Cloudflare"],
+  },
 ];
 
-const filters = ["All", "Languages", "Data", "Frontend", "Tools"];
-
 export function TechStack() {
-  const [active, setActive] = useState("All");
-  const visible = active === "All" ? items : items.filter(item => item.categories.includes(active));
-
-  return <section className="home-section tech-section"><div className="section-title"><h2>My Tech Stack</h2><div className="filters" aria-label="Filter technologies">{filters.map(filter => <button key={filter} type="button" className={active === filter ? "selected" : ""} aria-pressed={active === filter} onClick={() => setActive(filter)}>{filter}</button>)}</div></div><div className="tech-grid">{visible.map(item => <div className="tech-tile" key={item.name}><TechIcon name={item.name}/></div>)}</div></section>;
+  return (
+    <section className="home-section tech-section" aria-labelledby="technical-skills-title">
+      <div className="skills-heading">
+        <div>
+          <p className="skills-eyebrow">TOOLS I HAVE USED</p>
+          <h2 id="technical-skills-title">Technical Skills</h2>
+        </div>
+        <p>
+          A practical stack demonstrated across data engineering, analytics,
+          applied AI, recommender systems, and product delivery.
+        </p>
+      </div>
+      <div className="skills-groups">
+        {skillGroups.map((group) => (
+          <article className="skills-group" key={group.title}>
+            <h3>{group.title}</h3>
+            <div className="skills-list">
+              {group.skills.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }

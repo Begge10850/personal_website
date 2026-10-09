@@ -3,6 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const pageUrl = new URL("../app/projects/routepulse-mobility-analytics/page.tsx", import.meta.url);
+const globalCssUrl = new URL("../app/globals.css", import.meta.url);
 
 test("RoutePulse case study keeps its evidence, teaching detail and decision boundaries", async () => {
   const [page, projects] = await Promise.all([
@@ -43,6 +44,13 @@ test("RoutePulse case-study images are present", async () => {
   ]) {
     await access(new URL(`../public/projects/routepulse/${name}`, import.meta.url));
   }
+});
+
+test("RoutePulse mobile pipeline uses readable vertical connectors", async () => {
+  const css = await readFile(globalCssUrl, "utf8");
+
+  assert.match(css, /\.rp-architecture-row>i\{[^}]*transform:none/);
+  assert.match(css, /\.rp-architecture-row>i::before\{content:"↓"/);
 });
 
 test("primary navigation exposes Trainings and Seminars without an Extra menu", async () => {
