@@ -3,6 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import { Header } from "../../_components";
 import { ZoomableDiagram, ZoomableImage } from "../saidia-logistics-claims/ZoomableMedia";
+import { RoutePulse3DExperience } from "./RoutePulse3DExperience";
 
 export const metadata: Metadata = {
   title: "RoutePulse: Berlin and Brandenburg Mobility Analytics | Treva Antony Ogwang",
@@ -180,5 +181,6 @@ export default function RoutePulseCaseStudy() {
     <section className="case-section routepulse-boundaries"><div><p className="case-kicker">WHAT I WOULD AND WOULD NOT CONCLUDE</p><h2>The project is useful because its boundary is visible</h2></div><div><ul><li>The 39.5-hour Friday and weekend sample is not a normal working week and should not be used as a long-term operator scorecard.</li><li>The feed values may contain predictions. I did not independently compare them with confirmed physical arrival or departure times.</li><li>A station with 100 to 299 timed visits can reveal a question worth investigating, but it is labelled as an early signal.</li><li>Missing timing information is measured separately and excluded from timing-category denominators.</li><li>Scheduled shapes show where services run. They do not show where a vehicle was when a delay occurred.</li><li>The dashboard describes patterns in the collected data. It does not establish the operational cause of a delay.</li></ul></div></section>
 
     <section className="case-cta"><p className="case-kicker">EXPLORE THE WORK</p><h2>Use the dashboard, then inspect the code and the numbered worksheets behind it.</h2><div className="case-actions"><a href={liveApp} target="_blank" rel="noreferrer">Open RoutePulse <FiExternalLink /></a><a href={github} target="_blank" rel="noreferrer"><FaGithub /> View the repository</a></div></section>
+    <section className="case-section routepulse-3d-section"><p className="case-kicker">INTERACTIVE 3D NETWORK</p><h2>Separate five networks without losing their shared geography</h2><p className="rp-section-intro">Bus, tram, U-Bahn, S-Bahn and regional rail remain aligned to the same map. Combine the system into one surface or explode it into readable layers, rotate the model in any direction, and select a route to inspect its ordered stops and reported-delay journey. Vertical spacing is illustrative, not physical elevation or tunnel depth.</p><RoutePulse3DExperience /></section>
   </main></>;
 }

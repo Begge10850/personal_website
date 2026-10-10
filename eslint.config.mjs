@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     "dist/**",
     "out/**",
     "build/**",
+    "public/projects/routepulse/3d/**",
     "next-env.d.ts",
   ]),
   eslint.configs.recommended,

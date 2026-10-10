@@ -1,0 +1,37 @@
+{
+  "source": "VBB GTFS Static",
+  "licence": "CC BY 4.0",
+  "coordinateSystem": "EPSG:4326",
+  "generatedFiles": {
+    "bus.json": {
+      "routes": 1049,
+      "points": 129788,
+      "bytes": 7887068,
+      "sha256": "5604e125c8aff70752849e13e769b9d97cd0e798829ab264d29ea700b3dc26ec"
+    },
+    "tram.json": {
+      "routes": 43,
+      "points": 3127,
+      "bytes": 302561,
+      "sha256": "6953149951639b3582300ce2df6109fd631edfced98a50f66cdbc150d6b03dfb"
+    },
+    "ubahn.json": {
+      "routes": 9,
+      "points": 440,
+      "bytes": 63154,
+      "sha256": "c987c7f1d30201a8399720504be97a867db954540fa2f735a38d84ac9109e55f"
+    },
+    "sbahn.json": {
+      "routes": 18,
+      "points": 3488,
+      "bytes": 182710,
+      "sha256": "9e521ae7c4cc3304f5f33f573e776c1fc002042b89d51eeb17a973360daa323c"
+    },
+    "regional-rail.json": {
+      "routes": 54,
+      "points": 11198,
+      "bytes": 400636,
+      "sha256": "16fb70776d712a33eadb7e397a86b13c3c70d894b8303aa5f6376e36d7a21308"
+    }
+  }
+}
