@@ -1,4 +1,4 @@
-import{c as N}from"./expression-Bl_GL2tO.js";import{g as f,c as v,r as m,f as k,A as M,d as V,e as L,b as S,G as z,h as y,i as R,C as $,j as _}from"./index-w0zDommd.js";import{k as fe}from"./index-w0zDommd.js";const B=`fn arithmetic_add(x: {TYPE}, y: {TYPE}) -> {TYPE} {
+import{c as N}from"./expression-Bl_GL2tO.js";import{g as f,c as v,r as m,f as k,A as M,d as V,e as L,b as S,G as z,h as y,i as R,C as $,j as _}from"./index-CeVcd8gp.js";import{k as fe}from"./index-CeVcd8gp.js";const B=`fn arithmetic_add(x: {TYPE}, y: {TYPE}) -> {TYPE} {
   return x + y;
 }
 
@@ -358,4 +358,4 @@ ${Z(t.length)}
   result[rowOffset] = ${n.start} + i32(rowIndex) * ${n.step};
 }
 `,i=new $(r.device,{source:s,shaderLayout:{bindings:[{name:"result",type:"storage",group:0,location:0}]}});i.setBindings({result:r});const a=r.device.beginComputePass({});return i.dispatch(a,t.x,t.y,t.z),a.end(),r.device.submit(),i.destroy(),{success:!0}},le=({inputs:n,output:e,target:r})=>{const{columns:t}=n;return m({module:{name:"swizzle",source:"// swizzle expression handled inline"},expression:s=>`x[${t[s]}]`,inputs:{x:n.x},output:e,outputBuffer:r}),{success:!0}};export{Q as arithmetic,ee as dot,ne as equalAll,re as extent,te as fround,se as gather,fe as interleave,oe as length,ie as segmentedMap,ae as select,ue as sequence,le as swizzle};
-//# sourceMappingURL=index-WafW_CD_.js.map
+//# sourceMappingURL=index-Dgh-awKE.js.map
