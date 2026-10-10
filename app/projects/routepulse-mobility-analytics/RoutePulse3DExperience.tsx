@@ -28,6 +28,6 @@ export function RoutePulse3DExperience() {
   </div>;
   return <div className="rp-3d-frame-wrap" ref={frameWrap} style={fullscreen ? { padding: 14, marginTop: 0, background: "#071217" } : undefined}>
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, marginBottom: 10, color: fullscreen ? "#b7cec9" : "#66706c", fontSize: 12 }}><span>Drag to rotate · Scroll to zoom</span><button type="button" onClick={toggleFullscreen} style={{ border: "1px solid #9cbdb5", borderRadius: 8, padding: "9px 12px", background: fullscreen ? "#72e1d1" : "#fff", color: "#183b32", font: "inherit", fontWeight: 800, cursor: "pointer" }}>{fullscreen ? "Exit full screen" : "View full screen"}</button></div>
-    <iframe className="rp-3d-frame" style={fullscreen ? { height: "calc(100vh - 58px)", minHeight: 0 } : undefined} src="/projects/routepulse/3d/index.html?v=combined-legend" title="RoutePulse interactive 3D transport network" loading="lazy" allow="fullscreen" />
+    <iframe className="rp-3d-frame" style={fullscreen ? { height: "calc(100vh - 58px)", minHeight: 0 } : undefined} src="/projects/routepulse/3d/index.html?v=route-focus-final" title="RoutePulse interactive 3D transport network" loading="lazy" allow="fullscreen" />
   </div>;
 }
