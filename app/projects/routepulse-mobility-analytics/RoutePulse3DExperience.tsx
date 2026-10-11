@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const mapUrl = "/projects/routepulse/3d/index.html?v=mobile-controls";
+const mapUrl = "/projects/routepulse/3d/index.html?v=mobile-data-v2";
 
 export function RoutePulse3DExperience() {
   const [active, setActive] = useState(false);
