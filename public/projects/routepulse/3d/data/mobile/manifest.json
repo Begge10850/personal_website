@@ -1,0 +1,30 @@
+{
+  "tolerance": 0.0004,
+  "routeCount": 1173,
+  "sourcePoints": 148041,
+  "overviewPoints": 36921,
+  "sourceBytes": 8836129,
+  "overviewBytes": 1148908,
+  "modes": {
+    "bus": {
+      "routes": 1049,
+      "bytes": 1024409
+    },
+    "tram": {
+      "routes": 43,
+      "bytes": 28831
+    },
+    "ubahn": {
+      "routes": 9,
+      "bytes": 7527
+    },
+    "sbahn": {
+      "routes": 18,
+      "bytes": 19827
+    },
+    "regional": {
+      "routes": 54,
+      "bytes": 68314
+    }
+  }
+}
