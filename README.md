@@ -29,6 +29,8 @@ npm test
 
 `npm test` builds the site and runs the rendered-HTML tests in `tests/`.
 
+`npm run deploy` builds the project and deploys the generated Worker configuration to Cloudflare.
+
 ## Content structure
 
 - `app/` — routes, shared components and styles
