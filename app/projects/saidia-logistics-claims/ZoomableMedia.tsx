@@ -34,11 +34,9 @@ function Viewer({ label, children, enlarged }: ViewerProps) {
       {children}
     </button>
     {open && createPortal(
-      <div className="saidia-lightbox" role="dialog" aria-modal="true" aria-label={label} onMouseDown={(event) => {
-        if (event.target === event.currentTarget) setOpen(false);
-      }}>
-        <button type="button" className="saidia-lightbox-close" aria-label="Close enlarged view" autoFocus onClick={() => setOpen(false)}>×</button>
-        <div className="saidia-lightbox-content" onMouseDown={(event) => event.stopPropagation()}>{enlarged}</div>
+      <div className="saidia-lightbox" role="dialog" aria-modal="true" aria-label={label}>
+        <button type="button" className="saidia-lightbox-close" aria-label="Close enlarged view" onClick={() => setOpen(false)}>×</button>
+        <div className="saidia-lightbox-content">{enlarged}</div>
       </div>,
       document.body,
     )}
