@@ -21,9 +21,9 @@ export function SeminarGallery({ photos }: { photos: Photo[] }) {
         <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async"/>
       </button>)}
     </div>
-    {selected !== null && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Expanded seminar photograph" onClick={() => setSelected(null)}>
+    {selected !== null && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Expanded seminar photograph">
       <button type="button" className="gallery-close" onClick={() => setSelected(null)} aria-label="Close expanded photograph">×</button>
-      <img src={photos[selected].src} alt={photos[selected].alt} onClick={event => event.stopPropagation()}/>
+      <img src={photos[selected].src} alt={photos[selected].alt}/>
     </div>}
   </>;
 }
